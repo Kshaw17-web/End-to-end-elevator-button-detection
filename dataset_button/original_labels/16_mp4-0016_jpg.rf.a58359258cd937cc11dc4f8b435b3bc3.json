@@ -1,0 +1,69 @@
+{
+  "stem": "16_mp4-0016_jpg.rf.a58359258cd937cc11dc4f8b435b3bc3",
+  "split": "train",
+  "annotations": [
+    {
+      "class_id": 35,
+      "class_name": "Emergency",
+      "cx": 0.271484375,
+      "cy": 0.228515625,
+      "w": 0.17057812500000002,
+      "h": 0.20442187500000006,
+      "malformed": false
+    },
+    {
+      "class_id": 5,
+      "class_name": "14",
+      "cx": 0.8561249999999999,
+      "cy": 0.25065624999999997,
+      "w": 0.13671875,
+      "h": 0.15754687499999998,
+      "malformed": false
+    },
+    {
+      "class_id": 28,
+      "class_name": "8",
+      "cx": 0.84375,
+      "cy": 0.440109375,
+      "w": 0.1328125,
+      "h": 0.140625,
+      "malformed": false
+    },
+    {
+      "class_id": 36,
+      "class_name": "Open",
+      "cx": 0.310546875,
+      "cy": 0.787109375,
+      "w": 0.14714062500000002,
+      "h": 0.12109375,
+      "malformed": false
+    },
+    {
+      "class_id": 33,
+      "class_name": "Close",
+      "cx": 0.484375,
+      "cy": 0.790359375,
+      "w": 0.140625,
+      "h": 0.12760937499999994,
+      "malformed": false
+    },
+    {
+      "class_id": 0,
+      "class_name": "1",
+      "cx": 0.814453125,
+      "cy": 0.778,
+      "w": 0.1315156250000001,
+      "h": 0.13410937500000006,
+      "malformed": false
+    },
+    {
+      "class_id": 11,
+      "class_name": "2",
+      "cx": 0.828125,
+      "cy": 0.626296875,
+      "w": 0.125,
+      "h": 0.1484375,
+      "malformed": false
+    }
+  ]
+}

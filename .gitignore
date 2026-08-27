@@ -1,0 +1,41 @@
+﻿# ── Python cache ──────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ── Dataset images (large, not needed to run inference) ───
+# Keep data.yaml, preparation_report.md, original_labels/
+dataset_button/train/
+dataset_button/valid/
+dataset_button/test/
+
+# ── Duplicate raw training images (same as dataset_button/train) ──
+train/
+
+# ── Base COCO pretrained weights (publicly downloadable) ──
+yolov8n.pt
+
+# ── Old/superseded training run (46 MB, not the primary run) ──
+runs/detect/button_yolov8n_baseline/
+
+# ── Duplicate eval runs (images only, metrics are in primary run) ──
+runs/detect/button_yolov8n_fast_baseline_val/
+runs/detect/button_yolov8n_fast_baseline_test/
+
+# ── last.pt is unnecessary — best.pt is the deliverable ──
+runs/detect/button_yolov8n_fast_baseline/weights/last.pt
+
+# ── Large intermediate crops/prediction images ─────────────
+runs/detect/button_yolov8n_fast_baseline/test_crops/
+runs/detect/button_yolov8n_fast_baseline/test_predictions/
+
+# ── OCR visualizations (large image dumps, not required) ───
+runs/detect/button_yolov8n_fast_baseline/ocr_evaluation/visualizations/
+runs/detect/button_yolov8n_fast_baseline/ocr_evaluation_v2/visualizations/
+
+# ── Misc ───────────────────────────────────────────────────
+.env
+*.log
+output/

@@ -1,0 +1,24 @@
+{
+  "stem": "9_mp4-0010_jpg.rf.fd76f98825706a94c48d2aef020032d2",
+  "split": "test",
+  "annotations": [
+    {
+      "class_id": 37,
+      "class_name": "Up",
+      "cx": 0.587234375,
+      "cy": 0.43034375,
+      "w": 0.2630156250000001,
+      "h": 0.17057812499999994,
+      "malformed": false
+    },
+    {
+      "class_id": 34,
+      "class_name": "Down",
+      "cx": 0.587890625,
+      "cy": 0.690109375,
+      "w": 0.23307812499999994,
+      "h": 0.1640625,
+      "malformed": false
+    }
+  ]
+}

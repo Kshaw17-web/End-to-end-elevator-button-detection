@@ -1,0 +1,33 @@
+{
+  "stem": "17_mp4-0008_jpg.rf.3f4b5f5eef5318d80e52562399a95bbc",
+  "split": "train",
+  "annotations": [
+    {
+      "class_id": 25,
+      "class_name": "5",
+      "cx": 0.557296875,
+      "cy": 0.73828125,
+      "w": 0.203125,
+      "h": 0.1588593750000001,
+      "malformed": false
+    },
+    {
+      "class_id": 24,
+      "class_name": "4",
+      "cx": 0.279296875,
+      "cy": 0.747390625,
+      "w": 0.19660937499999998,
+      "h": 0.15885937499999994,
+      "malformed": false
+    },
+    {
+      "class_id": 22,
+      "class_name": "3",
+      "cx": 0.07734375,
+      "cy": 0.74609375,
+      "w": 0.1546875,
+      "h": 0.1609375,
+      "malformed": false
+    }
+  ]
+}

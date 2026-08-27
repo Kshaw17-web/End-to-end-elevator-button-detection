@@ -1,0 +1,24 @@
+{
+  "stem": "6_mp4-0001_jpg.rf.d9a0c81697f8df57c4d47e61642c3236",
+  "split": "valid",
+  "annotations": [
+    {
+      "class_id": 36,
+      "class_name": "Open",
+      "cx": 0.1515625,
+      "cy": 0.72734375,
+      "w": 0.303125,
+      "h": 0.2390625,
+      "malformed": false
+    },
+    {
+      "class_id": 33,
+      "class_name": "Close",
+      "cx": 0.588546875,
+      "cy": 0.712890625,
+      "w": 0.2760468749999999,
+      "h": 0.24348437499999998,
+      "malformed": false
+    }
+  ]
+}

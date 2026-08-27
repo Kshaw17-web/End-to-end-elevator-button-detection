@@ -1,0 +1,51 @@
+{
+  "stem": "17_mp4-0013_jpg.rf.d5bb399c03567e128638ad923d562957",
+  "split": "train",
+  "annotations": [
+    {
+      "class_id": 35,
+      "class_name": "Emergency",
+      "cx": 0.454421875,
+      "cy": 0.078125,
+      "w": 0.15885937499999997,
+      "h": 0.15625,
+      "malformed": false
+    },
+    {
+      "class_id": 36,
+      "class_name": "Open",
+      "cx": 0.4798125,
+      "cy": 0.58203125,
+      "w": 0.15495312499999994,
+      "h": 0.1875,
+      "malformed": false
+    },
+    {
+      "class_id": 33,
+      "class_name": "Close",
+      "cx": 0.51171875,
+      "cy": 0.822265625,
+      "w": 0.1640625,
+      "h": 0.16796875,
+      "malformed": false
+    },
+    {
+      "class_id": 26,
+      "class_name": "6",
+      "cx": 0.794921875,
+      "cy": 0.634765625,
+      "w": 0.18620312500000002,
+      "h": 0.20442187500000006,
+      "malformed": false
+    },
+    {
+      "class_id": 30,
+      "class_name": "B1",
+      "cx": 0.798828125,
+      "cy": 0.9010468749999999,
+      "w": 0.19140625,
+      "h": 0.1692656249999999,
+      "malformed": false
+    }
+  ]
+}

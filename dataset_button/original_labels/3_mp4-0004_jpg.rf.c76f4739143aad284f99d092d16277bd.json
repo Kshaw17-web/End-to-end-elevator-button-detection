@@ -1,0 +1,42 @@
+{
+  "stem": "3_mp4-0004_jpg.rf.c76f4739143aad284f99d092d16277bd",
+  "split": "test",
+  "annotations": [
+    {
+      "class_id": 35,
+      "class_name": "Emergency",
+      "cx": 0.7330781249999999,
+      "cy": 0.25456249999999997,
+      "w": 0.25,
+      "h": 0.256515625,
+      "malformed": false
+    },
+    {
+      "class_id": 36,
+      "class_name": "Open",
+      "cx": 0.7552031250000001,
+      "cy": 0.8873749999999999,
+      "w": 0.234375,
+      "h": 0.2096406250000001,
+      "malformed": false
+    },
+    {
+      "class_id": 26,
+      "class_name": "6",
+      "cx": 0.349609375,
+      "cy": 0.90625,
+      "w": 0.22785937500000006,
+      "h": 0.1875,
+      "malformed": false
+    },
+    {
+      "class_id": 27,
+      "class_name": "7",
+      "cx": 0.0796875,
+      "cy": 0.91015625,
+      "w": 0.15625,
+      "h": 0.1796875,
+      "malformed": false
+    }
+  ]
+}

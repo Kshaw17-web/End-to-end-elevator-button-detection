@@ -1,0 +1,24 @@
+{
+  "stem": "1_mp4-0014_jpg.rf.0a61ef598654961f0698bed9f81ce30f",
+  "split": "train",
+  "annotations": [
+    {
+      "class_id": 22,
+      "class_name": "3",
+      "cx": 0.158203125,
+      "cy": 0.53840625,
+      "w": 0.30078125,
+      "h": 0.3372343750000001,
+      "malformed": false
+    },
+    {
+      "class_id": 28,
+      "class_name": "8",
+      "cx": 0.802734375,
+      "cy": 0.567703125,
+      "w": 0.39453125,
+      "h": 0.4088593749999999,
+      "malformed": false
+    }
+  ]
+}

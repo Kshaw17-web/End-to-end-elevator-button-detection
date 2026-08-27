@@ -1,0 +1,60 @@
+{
+  "stem": "18_mp4-0036_jpg.rf.0b72efdcfe1e38c6fe9a23eee28d56fd",
+  "split": "valid",
+  "annotations": [
+    {
+      "class_id": 11,
+      "class_name": "2",
+      "cx": 0.509109375,
+      "cy": 0.361328125,
+      "w": 0.2265625,
+      "h": 0.20182812499999994,
+      "malformed": false
+    },
+    {
+      "class_id": 0,
+      "class_name": "1",
+      "cx": 0.524734375,
+      "cy": 0.666015625,
+      "w": 0.22135937499999994,
+      "h": 0.20442187500000006,
+      "malformed": false
+    },
+    {
+      "class_id": 30,
+      "class_name": "B1",
+      "cx": 0.5296875,
+      "cy": 0.92578125,
+      "w": 0.209375,
+      "h": 0.1484375,
+      "malformed": false
+    },
+    {
+      "class_id": 27,
+      "class_name": "7",
+      "cx": 0.90234375,
+      "cy": 0.34375,
+      "w": 0.1953125,
+      "h": 0.2125,
+      "malformed": false
+    },
+    {
+      "class_id": 26,
+      "class_name": "6",
+      "cx": 0.90234375,
+      "cy": 0.62890625,
+      "w": 0.1953125,
+      "h": 0.1640625,
+      "malformed": false
+    },
+    {
+      "class_id": 25,
+      "class_name": "5",
+      "cx": 0.873046875,
+      "cy": 0.890625,
+      "w": 0.15495312500000002,
+      "h": 0.1744843750000001,
+      "malformed": false
+    }
+  ]
+}

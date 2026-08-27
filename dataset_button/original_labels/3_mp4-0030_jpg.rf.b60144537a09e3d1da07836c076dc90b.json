@@ -1,0 +1,15 @@
+{
+  "stem": "3_mp4-0030_jpg.rf.b60144537a09e3d1da07836c076dc90b",
+  "split": "train",
+  "annotations": [
+    {
+      "class_id": 35,
+      "class_name": "Emergency",
+      "cx": 0.502609375,
+      "cy": 0.501296875,
+      "w": 0.3151093749999999,
+      "h": 0.3645781250000001,
+      "malformed": false
+    }
+  ]
+}

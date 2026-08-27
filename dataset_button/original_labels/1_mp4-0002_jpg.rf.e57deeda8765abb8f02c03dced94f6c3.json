@@ -1,0 +1,24 @@
+{
+  "stem": "1_mp4-0002_jpg.rf.e57deeda8765abb8f02c03dced94f6c3",
+  "split": "train",
+  "annotations": [
+    {
+      "class_id": 33,
+      "class_name": "Close",
+      "cx": 0.140625,
+      "cy": 0.7298125,
+      "w": 0.2734375,
+      "h": 0.2565156249999999,
+      "malformed": false
+    },
+    {
+      "class_id": 36,
+      "class_name": "Open",
+      "cx": 0.7233124999999999,
+      "cy": 0.7083281249999999,
+      "w": 0.29557812500000014,
+      "h": 0.25,
+      "malformed": false
+    }
+  ]
+}

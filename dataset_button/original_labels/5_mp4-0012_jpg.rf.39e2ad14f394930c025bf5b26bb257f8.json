@@ -1,0 +1,33 @@
+{
+  "stem": "5_mp4-0012_jpg.rf.39e2ad14f394930c025bf5b26bb257f8",
+  "split": "valid",
+  "annotations": [
+    {
+      "class_id": 1,
+      "class_name": "10",
+      "cx": 0.760421875,
+      "cy": 0.326171875,
+      "w": 0.3307343749999999,
+      "h": 0.32421875,
+      "malformed": false
+    },
+    {
+      "class_id": 33,
+      "class_name": "Close",
+      "cx": 0.713546875,
+      "cy": 0.8470000000000001,
+      "w": 0.3385468749999999,
+      "h": 0.26953125,
+      "malformed": false
+    },
+    {
+      "class_id": 36,
+      "class_name": "Open",
+      "cx": 0.12421875,
+      "cy": 0.85859375,
+      "w": 0.2484375,
+      "h": 0.2671875,
+      "malformed": false
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "stem": "10_mp4-0000_jpg.rf.04472e6413093abc9af845c9741b1a69",
+  "split": "valid",
+  "annotations": [
+    {
+      "class_id": 35,
+      "class_name": "Emergency",
+      "cx": 0.0,
+      "cy": 0.6875,
+      "w": 0.01171875,
+      "h": 0.6966140625,
+      "malformed": true
+    },
+    {
+      "class_id": 36,
+      "class_name": "Open",
+      "cx": 0.12760937500000002,
+      "cy": 0.8951874999999999,
+      "w": 0.25,
+      "h": 0.15234375,
+      "malformed": false
+    },
+    {
+      "class_id": 33,
+      "class_name": "Close",
+      "cx": 0.630203125,
+      "cy": 0.900390625,
+      "w": 0.2682343749999999,
+      "h": 0.16015625,
+      "malformed": false
+    }
+  ]
+}

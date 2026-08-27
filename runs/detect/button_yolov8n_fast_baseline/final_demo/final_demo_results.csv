@@ -1,0 +1,6 @@
+image_name,target_floor,target_found,predicted_floor,yolo_confidence,ocr_confidence,orientation,fallback_used,match
+6_mp4-0016_jpg.rf.986ef7e01442d1755e426975190bf4f5.jpg,11,False,7,0.8551,0.5216,best_effort,True,False
+12_mp4-0021_jpg.rf.51fd969472d3a690a9c0abc4acbedaf1.jpg,20,True,20,0.8388,0.8352,flipped,False,True
+12_mp4-0020_jpg.rf.83a9604de7ea1ea4bd2847d6f1b8d938.jpg,19,True,19,0.8693,0.7275,best_effort,True,True
+3_mp4-0009_jpg.rf.184d92e6ab5ebecd6a080fcd7681f93b.jpg,B1,False,7,0.8587,0.9979,flipped,False,False
+18_mp4-0038_jpg.rf.a46d912479ee78a4a34d9d353cfc288b.jpg,7,True,7,0.867,0.8011,flipped_enhanced,True,True
