@@ -1,0 +1,19 @@
+{
+  "note": "YOLO-only (no EasyOCR). model.predict() per-image timing from results[0].speed.",
+  "model": "models/best.pt (epoch 21)",
+  "device": "CPU",
+  "imgsz": 512,
+  "conf_threshold": 0.45,
+  "num_images": 113,
+  "wall_total_ms": 9365.5,
+  "per_image": {
+    "preprocess_ms": 2.36,
+    "inference_ms": 72.8,
+    "postprocess_ms": 1.29,
+    "total_pipeline_ms": 76.45
+  },
+  "fps": {
+    "inference_only_fps": 13.7,
+    "full_pipeline_fps": 13.1
+  }
+}

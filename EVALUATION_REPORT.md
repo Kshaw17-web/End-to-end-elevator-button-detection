@@ -1,4 +1,4 @@
-﻿# Evaluation Report — Elevator Button Detection & Floor Recognition
+# Evaluation Report — Elevator Button Detection & Floor Recognition
 
 **Assignment:** Lastmile Robotics — Assignment 05
 **Model:** YOLOv8n (nano), trained from COCO weights
@@ -28,10 +28,25 @@ Evaluation on the held-out **test split** (113 images, 761 ground-truth annotati
 | mAP@50 | 0.9941 |
 | mAP@50-95 | 0.7241 |
 
-**Inference latency:**
-EasyOCR recognition (the dominant cost) takes approximately 0.5-1.5 s per button crop on CPU.
-YOLO detection alone is sub-second on a typical panel but a standalone per-image YOLO-only timing artifact was not separately logged.
-Full training curves and per-epoch metrics are in `runs/detect/button_yolov8n_fast_baseline/results.csv`.
+**YOLO-only inference latency** (measured — `models/best.pt`, 113 test images, CPU, imgsz=512, conf=0.45):
+
+| Stage | Per-image (ms) |
+|---|---|
+| Preprocess | 2.36 ms |
+| **Neural-network inference** | **72.8 ms** |
+| Postprocess | 1.29 ms |
+| **Total YOLO pipeline** | **76.45 ms** |
+
+| Throughput | Value |
+|---|---|
+| Inference-only FPS | **13.7 FPS** |
+| Full YOLO pipeline FPS | **13.1 FPS** |
+
+> These figures cover **YOLO detection only** (no EasyOCR). Measured via `results[0].speed` from the
+> Ultralytics API on a warm model (one warm-up image excluded). EasyOCR recognition adds approximately
+> 0.5–1.5 s per button crop on the same hardware, making OCR the dominant latency in the full pipeline.
+> Full training curves and per-epoch metrics are in `runs/detect/button_yolov8n_fast_baseline/results.csv`.
+> Raw benchmark data: `runs/detect/button_yolov8n_fast_baseline/yolo_latency_benchmark.json`.
 
 ---
 
@@ -113,8 +128,60 @@ Source: `runs/detect/button_yolov8n_fast_baseline/final_demo/final_demo_results.
 - target=11, predicted=7 — multi-digit button misread; OCR returned 7 instead of 11
 - target=B1, predicted=7 — B1 glyph on reflective surface read as 7
 
-> The 5-image demo is qualitative only. The best available quantitative estimate of per-button recognition
-> is the full-test-set floor-label OCR accuracy of 66.62% (459 / 689 instances).
+> The 5-image demo is qualitative only. See Section 3b below for the quantitative evaluation.
+
+---
+
+## 3b. Quantitative End-to-End Evaluation (Production Pipeline)
+
+A deterministic 20-image subset of the 113-image held-out test set was evaluated using the actual
+production pipeline (`detect_floor.py` + `src/`). Images were selected with `random.sample(seed=42)`
+on the sorted test image list. Three of the 20 images contained only icon buttons (Open/Close/Emergency)
+with no floor labels in `dataset_button/original_labels/` and were excluded, yielding **17 valid test cases**.
+
+For each image, the most frequent floor label in the ground-truth metadata was used as the target floor.
+The target was supplied to `detect_floor.py --target-floor` and the pipeline result was compared against it.
+The ground truth did not influence the prediction — it was only used to select the target argument and
+judge correctness after the pipeline returned.
+
+Source: `runs/detect/button_yolov8n_fast_baseline/end_to_end_evaluation.csv`
+
+| Image | Target | Predicted | Correct? |
+|---|---|---|---|
+| 11_mp4-0004…3ea3.jpg | 4 | 4 | ✅ |
+| 11_mp4-0004…b887.jpg | 4 | 4 | ✅ |
+| 12_mp4-0017…jpg | B1 | B1 | ✅ |
+| 12_mp4-0020…jpg | B1 | 3 | ❌ |
+| 12_mp4-0021…jpg | 9 | 9 | ✅ |
+| 12_mp4-0024…jpg | 29 | 29 | ✅ |
+| 13_mp4-0028…jpg | B1 | 2 | ❌ |
+| 16_mp4-0002…jpg | 8 | 8 | ✅ |
+| 17_mp4-0000…jpg | 6 | 6 | ✅ |
+| 19_mp4-0005…jpg | B1 | 8 | ❌ |
+| 1_mp4-0008…jpg | B1 | B1 | ✅ |
+| 3_mp4-0004…jpg | 7 | 6 | ❌ |
+| 3_mp4-0018…jpg | 9 | 9 | ✅ |
+| 3_mp4-0027…jpg | B1 | B1 | ✅ |
+| 4_mp4-0004…jpg | 8 | 17 | ❌ |
+| 4_mp4-0008…jpg | 7 | 15 | ❌ |
+| 6_mp4-0008…jpg | 8 | 2 | ❌ |
+
+| Metric | Value |
+|---|---|
+| Images sampled (seed=42) | 20 |
+| Valid test cases (floor labels present) | **17** |
+| Skipped (icon-only panels) | 3 |
+| **Correct floor identifications** | **10** |
+| **Incorrect floor identifications** | **7** |
+| **End-to-end accuracy** | **10 / 17 = 58.8%** |
+
+**Failure analysis:**
+- B1/B2/B3 failures dominate: 3 of the 7 failures had target=B1, consistent with the 18.18% B1 OCR accuracy.
+- Single-digit mismatches (7→6, 8→17, 7→15, 8→2): OCR returned a different valid floor label that scored higher.
+
+> **Scope note:** This is a deterministic 20-image sample from the 113-image held-out test set.
+> It is NOT a full-test-set end-to-end evaluation. Results are indicative of production pipeline
+> performance on this hardware (CPU, AMD Ryzen 5 5500U).
 
 ---
 
@@ -128,6 +195,7 @@ Source: `runs/detect/button_yolov8n_fast_baseline/final_demo/final_demo_results.
 | OCR | Multi-digit accuracy | 83.55% |
 | OCR | B1/B2/B3 accuracy | 18.18% |
 | End-to-end | Demo accuracy (5 images) | 60% (3 / 5) |
+| End-to-end | **Quantitative (20-image sample, 17 valid)** | **58.8% (10 / 17)** |
 
 The detector performs at near-production quality. OCR is the primary bottleneck, especially for single-digit
 floors and basement labels. Replacing or augmenting EasyOCR with a domain-fine-tuned scene-text model

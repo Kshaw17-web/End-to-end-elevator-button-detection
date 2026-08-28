@@ -219,6 +219,21 @@ python train.py --epochs 30 --imgsz 512 --batch 8
 
 ## Results
 
+> See [EVALUATION_REPORT.md](EVALUATION_REPORT.md) for the full evaluation report, including detection metrics, OCR analysis, end-to-end evaluation, and inference latency.
+
+### Summary
+
+| Metric | Value | Notes |
+|---|---:|---|
+| Button detection mAP@50 | 99.15% | Held-out test set, 113 images |
+| Button detection mAP@50-95 | 73.59% | Held-out test set |
+| OCR floor-label accuracy | 66.62% | V1 eval, 689 instances |
+| End-to-end accuracy | 58.8% (10/17) | Production pipeline, 20-image sample (seed=42) |
+| YOLO-only latency | 76.45 ms/image | CPU, AMD Ryzen 5 5500U |
+| YOLO-only throughput | 13.1 FPS | CPU only; EasyOCR adds 0.5–1.5 s/button |
+
+> **Note on end-to-end accuracy:** The 58.8% figure is from a deterministic 20-image subset of the 113-image held-out test set (17 valid cases; 3 icon-only panels skipped), evaluated using the production `detect_floor.py` pipeline. It is **not** a full 113-image end-to-end evaluation. The 5-image qualitative demo (3/5 = 60%) is kept below as an illustrative example.
+
 ### Detector (test set)
 
 | Metric | Value |
@@ -242,13 +257,15 @@ python train.py --epochs 30 --imgsz 512 --batch 8
 | Original orientation accuracy | 57.75% | 471 crops |
 | Flipped orientation accuracy | 81.66% | 229 crops |
 
-OCR is the primary performance bottleneck. The detector achieves near-perfect localization (mAP@50 = 0.9915); OCR accuracy varies substantially by floor label category. B1/B2/B3 recognition remains the weakest category. The 5-image `final_demo_results.csv` (3/5 target floors correctly matched) is qualitative only and is not a substitute for a full-test-set end-to-end evaluation.
+OCR is the primary performance bottleneck. The detector achieves near-perfect localization (mAP@50 = 0.9915); OCR accuracy varies substantially by floor label category. B1/B2/B3 recognition remains the weakest category.
+
+A quantitative end-to-end evaluation using the production pipeline (`detect_floor.py`) on a deterministic 20-image sample (seed=42) from the held-out test set yielded **10 / 17 = 58.8%** correct floor identifications (3 icon-only panels had no floor labels and were excluded). The 5-image `final_demo_results.csv` (3/5 target floors correctly matched) is retained as a qualitative demonstration only.
 
 ---
 
 ## Limitations
 
-- **CPU-only:** Both YOLO inference and EasyOCR run on CPU. EasyOCR recognition takes approximately 0.5–1.5 s per button crop; the total per-image latency grows linearly with button count. YOLO detector inference is faster (sub-second on typical panels), but a per-image YOLO-only timing artifact was not separately stored. GPU acceleration would be required for real-time use.
+- **CPU-only:** Both YOLO inference and EasyOCR run on CPU. YOLO detection averages **76.45 ms/image** (72.8 ms neural-network inference + 3.65 ms pre/post-processing) at 13.1 FPS on an AMD Ryzen 5 5500U. EasyOCR recognition adds approximately 0.5–1.5 s per button crop, making OCR the dominant latency. GPU acceleration would be required for real-time use.
 - **Single-digit floors:** Small character size at typical crop resolutions reduces OCR confidence for floors 1–9.
 - **B1/B2/B3:** Character similarity between `B`, `8`, and common OCR noise tokens makes basement floor recognition the hardest category.
 - **Mirrored text:** Some elevator panels produce horizontally flipped text relative to the camera. The flipped-orientation pass mitigates but does not fully solve this.
