@@ -57,7 +57,7 @@ Source: `runs/detect/button_yolov8n_fast_baseline/ocr_evaluation/ocr_results.csv
 
 > Note: Results are from the V1 OCR evaluation script (`scripts/ocr_evaluation.py`), which used CLAHE + Otsu
 > preprocessing. The production pipeline (`src/ocr.py`) uses a 4-pass EasyOCR approach with grayscale +
-> digit/B allowlist. V2 evaluation did not produce a complete summary artifact.
+> digit/B allowlist. 
 
 ### Counts
 
