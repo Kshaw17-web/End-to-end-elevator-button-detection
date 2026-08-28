@@ -181,7 +181,7 @@ Source: `runs/detect/button_yolov8n_fast_baseline/end_to_end_evaluation.csv`
 
 > **Scope note:** This is a deterministic 20-image sample from the 113-image held-out test set.
 > It is NOT a full-test-set end-to-end evaluation. Results are indicative of production pipeline
-> performance on this hardware (CPU, AMD Ryzen 5 5500U).
+> performance on my hardware (CPU, AMD Ryzen 5 5500U).
 
 ---
 
